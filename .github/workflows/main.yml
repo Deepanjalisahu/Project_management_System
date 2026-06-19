@@ -9,6 +9,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: mydb2pm
+          MYSQL_DATABASE: projectmanagement
+        ports:
+          - 3306:3306
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
